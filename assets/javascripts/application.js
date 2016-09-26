@@ -1,5 +1,11 @@
 $(document).ready(function() {
-  $("a").click(function() {
-    console.log("nutter butter");
-  })
+  var pageIndex = {
+    "/contact/": "Contact",
+    "/": "Home",
+    "/faq/": "Volunteer FAQ",
+    "/about/": "About",
+  }
+
+  var pageTitle = pageIndex[window.location.pathname];
+  $("a:contains("+pageTitle+")").addClass("active");
 })

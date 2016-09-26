@@ -1,13 +1,21 @@
 <header class="site-header">
-  <div class="wrapper">
-
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
-
-    <nav class="site-nav">
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-      <a href="/faq">Volunteer FAQ</a>
-    </nav>
-  </div>
+  <nav class="stackable menu-container nav-menu">
+    <div class="menu">
+      <label for="show-menu" id="burger">
+        <img class="mobile-icon" src="/assets/images/icon.svg" alt="">
+        <img class="desk-icon" src="/assets/images/horizontal-icon.svg" alt="">
+      </label>
+    </div>
+    <input type="checkbox" id="show-menu" role=button>
+    <div class="items">
+      <a class="item nav-item" href="/">
+        <p>Home</p>
+      </a>
+      <a class="item nav-item" href="/about"><p>About</p></a>
+      <a class="item nav-item" href="/contact"><p>Contact</p></a>
+      <a class="item nav-item" href="/faq"><p>Volunteer FAQ</p></a>
+    </div>
+  </nav>
+  <!-- <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a> -->
+  <!-- <img src="/assets/images/logo.svg" alt=""> -->
 </header>
