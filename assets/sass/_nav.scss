@@ -19,7 +19,7 @@
   height: 100px;
 
   img {
-    height: 90px;
+    height: 80px;
   }
 
   .menu {
@@ -127,7 +127,7 @@
         width: 100%;
 
         &:hover {
-          background-color: rgb(183, 224, 237);
+          background-color: $grey-color-light;
         }
 
         &:hover:not(.active) {
