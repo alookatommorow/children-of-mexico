@@ -3,6 +3,10 @@
 ---
 @charset "utf-8";
 
+// Colors
+$black: #221E1F;
+$red: #C4122F;
+$blue: #0067B1;
 
 
 // Our variables
@@ -49,5 +53,7 @@ $on-laptop:        800px;
 @import
         "base",
         "layout",
+        "nav",
+        "menu",
         "syntax-highlighting"
 ;
