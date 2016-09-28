@@ -5,8 +5,11 @@
 
 // Colors
 $black: #221E1F;
-$red: #C4122F;
+$red: rgb(196, 18, 47);
 $blue: #0067B1;
+$rose: #FACFD0;
+$light-blue: rgb(222, 243, 250);
+
 
 
 // Our variables
@@ -55,5 +58,6 @@ $on-laptop:        800px;
         "layout",
         "nav",
         "menu",
+        "home",
         "syntax-highlighting"
 ;
