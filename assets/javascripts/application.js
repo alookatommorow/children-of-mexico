@@ -11,12 +11,23 @@ $(document).ready(function() {
   var pageTitle = pageIndex[window.location.pathname];
   $("a:contains("+pageTitle+")").addClass("active");
 
+  /// toggle menu caret display ////
 
+  $("#show-menu").click(function() {
+    if(window.innerWidth <= 600) {
+      $(".fa-caret-down").toggle();
+      $(".fa-caret-up").toggle();
+    }
+  })
+
+  /// start image rotation on root path ///
   if (window.location.pathname === "/") {
     new ImageRotator().init();
   }
 });
 
+
+/// Image Rotator ///
 function ImageRotator() {
   var interval;
 
@@ -29,7 +40,6 @@ function ImageRotator() {
 
   function animate() {
     var $currentImage = $("img.active");
-    console.log($currentImage)
     var $currentCircle = $(".circle.active");
     var $nextImage = $currentImage.next();
     var $nextCircle = $currentCircle.next();
