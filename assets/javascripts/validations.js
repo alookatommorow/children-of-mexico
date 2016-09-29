@@ -1,12 +1,22 @@
 $(document).ready(function() {
 
-  $(".contact-form").submit( function (event) {
+  $(".contact-form").submit(function (event) {
     event.preventDefault();
 
     var validation = new FormValidator(this).validateForm();
+    var data = $(this).serialize();
 
     if (validation) {
-      console.log("hell ya");
+      $.ajax({
+          url: this.action,
+          method: this.method,
+          data: data,
+          dataType: "json"
+      })
+      .done(formSuccess)
+      .fail(function(response){
+        console.log("error", response);
+      });
     }
   });
 
@@ -18,16 +28,16 @@ $(document).ready(function() {
 
 })
 
-var validationTypes = {
-  first: {
-    prompt: "Please enter a first name",
-    counterpart: "[placeholder='First Name']",
-    validator: "empty"
-  },
+function formSuccess(response) {
+  console.log("hell ya");
+  console.log(response);
+}
 
-  last: {
-    prompt: "Please enter a last name",
-    counterpart: "[placeholder='Last Name']",
+var validationTypes = {
+
+  name: {
+    prompt: "Please enter a name",
+    counterpart: "[placeholder='Full Name']",
     validator: "empty"
   },
 
@@ -68,7 +78,6 @@ FormValidator.prototype.validateForm = function() {
 
   $(input).each(function(item) {
     validationType = input[item].className.split(" ")[1];
-    console.log(validationType);
     validator = validators[validationTypes[validationType].validator];
     if ( !validator($(input[item]).val()) ) {
       errorList += "<li>" + validationTypes[validationType].prompt + "</li>";
