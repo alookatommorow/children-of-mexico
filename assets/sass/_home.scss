@@ -1,34 +1,65 @@
-.carousel-container {
-  position: relative;
-  height: 500px;
-  overflow: hidden;
+.home {
+  padding: 40px;
+  margin: 0 auto;
 
-  img {
-    display: none;
-
+  .logo-container {
+    text-align: center;
   }
 
-  .dots-container {
-    padding: 10px;
-    width: 100px;
-    position: absolute;
-    top: 30px;
-    right: 40px;
+  .well {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items : center;
+    justify-content: space-around;
+  }
 
-    .circle {
-      border-radius: 50%;
-      width: 15px;
-      height: 15px;
-      background-color: $blue;
-      display: inline-block;
-      cursor: pointer;
+  .carousel-container {
+    width: 50%;
+    position: relative;
+    // display: inline-block;
+    height: 700px;
+    overflow: hidden;
 
-      &.active {
-        border: 2px solid $red;
+    .photo-container {
+      background-image: url("/assets/images/IMG0170.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center top;
+      display: block;
+      height: 700px;
+      width: 100%;
+
+      img {
+        display: none;
       }
     }
+
+    .dots-container {
+      padding: 10px;
+      width: 150px;
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .circle {
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        background-color: $blue;
+        display: inline-block;
+        cursor: pointer;
+
+        &.active {
+          border: 2px solid $red;
+        }
+      }
+    }
+  }
+
+  .text-container {
+    // display: inline-block;
+    width: 40%;
   }
 }

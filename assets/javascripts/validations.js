@@ -1,24 +1,6 @@
 $(document).ready(function() {
 
-  $(".contact-form").submit(function (event) {
-    event.preventDefault();
 
-    var validation = new FormValidator(this).validateForm();
-    var data = $(this).serialize();
-
-    if (validation) {
-      $.ajax({
-          url: this.action,
-          method: this.method,
-          data: data,
-          dataType: "json"
-      })
-      .done(formSuccess)
-      .fail(function(response){
-        console.log("error", response);
-      });
-    }
-  });
 
   $("textarea.validate").focus(function() {
     if ($(this).hasClass("error")) {
@@ -28,9 +10,9 @@ $(document).ready(function() {
 
 })
 
-function formSuccess(response) {
-  console.log("hell ya");
-  console.log(response);
+function formSuccess() {
+  $(".contact-form").hide();
+  $(".user-message.success").show()
 }
 
 var validationTypes = {

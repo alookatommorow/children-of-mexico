@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   var pageIndex = {
     "/contact/": "Contact",
     "/": "Home",
@@ -24,66 +25,79 @@ $(document).ready(function() {
   if (window.location.pathname === "/") {
     new ImageRotator().init();
   }
+
+  /// validate then send contact form ///
+  $(".contact-form").submit(function (event) {
+    event.preventDefault();
+
+    var validation = new FormValidator(this).validateForm();
+    var data = $(this).serialize();
+
+    if (validation) {
+      $.ajax({
+          url: this.action,
+          method: this.method,
+          data: data,
+          dataType: "json"
+      })
+      .done(formSuccess)
+      .fail(function(response){
+        console.log("error", response);
+      });
+    }
+  });
 });
 
 
 /// Image Rotator ///
-function ImageRotator() {
-  var interval;
 
+function ImageRotator() {
+  var $container = $('.photo-container');
+  var currentIndex = 0;
+  var $currentCircle = $(".circle.active");
+  var $nextCircle = $currentCircle.next();
+  var imageNames = ["IMG0170", "DSC02873", "IMG0363", "DSC01000", "DSC00461"];
+  var interval, currentUrl;
 
   this.init = function() {
-    $("img.first").css("display", "block");
-    interval = setInterval(animate, 4000);
+    interval = setInterval(cycleImages, 5000);
   }
 
-
-  function animate() {
-    var $currentImage = $("img.active");
-    var $currentCircle = $(".circle.active");
-    var $nextImage = $currentImage.next();
-    var $nextCircle = $currentCircle.next();
-    if ($nextImage.length === 0) {
-      $nextImage = $("img.first");
-      $nextCircle = $(".circle.first");
-    }
-    $currentImage.fadeOut(1000, function() {
-      $currentImage.removeClass("active");
-      $nextImage.addClass("active").fadeIn(1000);
+  function animate(url) {
+    $container.fadeOut(1000, function() {
+      $container.css('background-image', 'url('+url+')');
       $currentCircle.removeClass("active");
+      $container.fadeIn(1000);
       $nextCircle.addClass("active");
     });
+  }
+
+  function cycleImages () {
+    $currentCircle = $(".circle.active");
+    if (currentIndex === imageNames.length - 1) {
+      currentIndex = 0;
+      $nextCircle = $(".circle.first");
+    } else {
+      currentIndex++;
+      $nextCircle = $currentCircle.next();
+    }
+    currentUrl = generateUrl(imageNames[currentIndex]);
+    animate(currentUrl);
+  };
+
+  function generateUrl(name) {
+    return "https://storage.googleapis.com/children-of-mexico/"+name+".JPG"
   }
 
   $(".circle").click(function(){
     clearInterval(interval);
     var clickedIndex = $(this).index();
-    var corrImage = $(".photo-container img:eq("+ clickedIndex +")");
+    var url = imageNames[clickedIndex];
+    currentIndex = clickedIndex;
 
     $(".circle").removeClass("active")
-    $("img").removeClass("active");
-    corrImage.addClass("active");
     $(this).addClass("active");
-    $(".photo-container img:not(.active)").css("display", "none");
-    corrImage.css("display", "block");
-    interval = setInterval(animate, 5000);
+    $container.css('background-image', 'url('+url+')');
+    interval = setInterval(cycleImages, 5000);
   });
-
-
-
-  // function generateImages(location) {
-  //   var url, className;
-  //   totalImages = imageIndex[location].length;
-
-  //   for (var i = 0; i < totalImages; i++) {
-  //     url = googleBucketUrlFrom(imageIndex[location][i]);
-  //     if (i === 0) {
-  //       className = 'portfolio-image active first'
-  //     } else {
-  //       className = 'portfolio-image'
-  //     }
-  //     $('.image-container').append("<img class='"+ className+"' src='"+url+"'>")
-  //   }
-  //   $(".portfolio-image.first").css("display", "block");
-  // }
 }
