@@ -7,6 +7,10 @@
     align-items : flex-start;
     justify-content: space-around;
 
+    .logo-container-mobile {
+      display: none;
+    }
+
     .carousel-container {
       width: 50%;
       position: relative;
@@ -62,6 +66,63 @@
 
         img {
           height: 220px;
+        }
+      }
+    }
+  }
+
+  @include media-query($tablet) {
+    padding: 25px;
+
+    .well {
+      display: block;
+
+      .logo-container-mobile {
+        display: block;
+        text-align: center;
+
+        img {
+          height: 100px;
+          margin-bottom: 20px;
+        }
+      }
+
+      .carousel-container {
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .welcome-container {
+        padding-top: 10px;
+        margin: 0 auto;
+        width: 100%;
+
+        .logo-container {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include media-query($on-palm) {
+    padding: 10px;
+
+    .well {
+      padding: 10px;
+
+      .logo-container-mobile {
+
+        img {
+          height: 75px;
+          margin-bottom: 10px;
+        }
+      }
+
+      .carousel-container {
+        height: 400px;
+
+        .photo-container {
+          height: 400px;
         }
       }
     }
