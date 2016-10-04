@@ -56,7 +56,7 @@ function ImageRotator() {
   var currentIndex = 0;
   var $currentCircle = $(".circle.active");
   var $nextCircle = $currentCircle.next();
-  var imageNames = ["IMG0170", "DSC02873", "IMG0363", "DSC01000", "DSC00461"];
+  var imageNames = ["IMG0170", "DSC02873", "IMG0363", "IMG0668", "DSC00461"];
   var interval, currentUrl;
 
   this.init = function() {
@@ -92,12 +92,12 @@ function ImageRotator() {
   $(".circle").click(function(){
     clearInterval(interval);
     var clickedIndex = $(this).index();
-    var url = imageNames[clickedIndex];
+    var currentUrl = generateUrl(imageNames[clickedIndex]);
     currentIndex = clickedIndex;
 
     $(".circle").removeClass("active")
     $(this).addClass("active");
-    $container.css('background-image', 'url('+url+')');
+    $container.css('background-image', 'url('+currentUrl+')');
     interval = setInterval(cycleImages, 5000);
   });
 }

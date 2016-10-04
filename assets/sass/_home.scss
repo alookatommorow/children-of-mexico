@@ -2,64 +2,68 @@
   padding: 40px;
   margin: 0 auto;
 
-  .logo-container {
-    text-align: center;
-  }
-
   .well {
     display: flex;
-    align-items : center;
+    align-items : flex-start;
     justify-content: space-around;
-  }
 
-  .carousel-container {
-    width: 50%;
-    position: relative;
-    // display: inline-block;
-    height: 700px;
-    overflow: hidden;
-
-    .photo-container {
-      background-image: url("/assets/images/IMG0170.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center top;
-      display: block;
+    .carousel-container {
+      width: 50%;
+      position: relative;
       height: 700px;
-      width: 100%;
+      overflow: hidden;
 
-      img {
-        display: none;
+      .photo-container {
+        background-image: url("https://storage.googleapis.com/children-of-mexico/IMG0170.JPG");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        display: block;
+        height: 700px;
+        width: 100%;
+
+        img {
+          display: none;
+        }
       }
-    }
 
-    .dots-container {
-      padding: 10px;
-      width: 150px;
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      .dots-container {
+        padding: 10px;
+        width: 150px;
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-      .circle {
-        border-radius: 50%;
-        width: 15px;
-        height: 15px;
-        background-color: $blue;
-        display: inline-block;
-        cursor: pointer;
+        .circle {
+          border-radius: 50%;
+          width: 15px;
+          height: 15px;
+          background-color: $blue;
+          display: inline-block;
+          cursor: pointer;
 
-        &.active {
-          border: 2px solid $red;
+          &.active {
+            border: 2px solid $red;
+          }
         }
       }
     }
-  }
 
-  .text-container {
-    // display: inline-block;
-    width: 40%;
+    .welcome-container {
+      width: 45%;
+
+      .logo-container {
+        padding: 20px 0;
+        text-align: center;
+        margin-bottom: 50px;
+
+        img {
+          height: 220px;
+        }
+      }
+    }
   }
 }
