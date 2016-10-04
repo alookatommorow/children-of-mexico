@@ -12,8 +12,7 @@ $(document).ready(function() {
   var pageTitle = pageIndex[window.location.pathname];
   $("a:contains("+pageTitle+")").addClass("active");
 
-  /// toggle menu caret display ////
-
+  /// toggle nav menu caret display ////
   $("#show-menu").click(function() {
     if(window.innerWidth <= 600) {
       $(".fa-caret-down").toggle();
@@ -24,6 +23,10 @@ $(document).ready(function() {
   /// start image rotation on root path ///
   if (window.location.pathname === "/") {
     new ImageRotator().init();
+  }
+
+  if (window.location.pathname === "/gallery/") {
+    new ImageGallery().init();
   }
 
   /// validate then send contact form ///
@@ -46,4 +49,16 @@ $(document).ready(function() {
       });
     }
   });
+
+  /// gallery logic ///
+  $("[data-media-link]").click(function(){
+    var content = $(this).data("media-link");
+    $(".gallery-content .active").removeClass("active")
+    $(""+content+"").addClass("active");
+  });
+
 });
+
+function generateUrl(name) {
+  return "https://storage.googleapis.com/children-of-mexico/"+name+".JPG"
+}

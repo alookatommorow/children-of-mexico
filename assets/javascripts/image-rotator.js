@@ -1,10 +1,11 @@
 function ImageRotator() {
-  var $container = $('.photo-container');
-  var currentIndex = 0;
-  var $currentCircle = $(".circle.active");
-  var $nextCircle = $currentCircle.next();
-  var imageNames = ["IMG0170", "DSC02873", "IMG0363", "IMG0668", "DSC00461"];
-  var interval, currentUrl;
+  var $container = $('.photo-container'),
+    currentIndex = 0,
+    $currentCircle = $(".circle.active"),
+    $nextCircle = $currentCircle.next(),
+    imageNames = ["IMG0170", "DSC02873", "IMG0363", "IMG0668", "DSC00461"],
+    interval,
+    currentUrl;
 
   this.init = function() {
     interval = setInterval(cycleImages, 5000);
@@ -31,10 +32,6 @@ function ImageRotator() {
     currentUrl = generateUrl(imageNames[currentIndex]);
     animate(currentUrl);
   };
-
-  function generateUrl(name) {
-    return "https://storage.googleapis.com/children-of-mexico/"+name+".JPG"
-  }
 
   $(".circle").click(function(){
     $container.finish();
