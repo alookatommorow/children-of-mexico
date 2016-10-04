@@ -25,6 +25,11 @@
   .menu {
     margin: 0em;
     padding-left: 20px;
+
+    .fa {
+      display: none;
+      margin-left: 10px;
+    }
   }
 
   .mobile-icon {
@@ -41,7 +46,6 @@
     a.item.nav-item {
       color: $black;
       font-weight: bold;
-
     }
 
     .item {
@@ -85,6 +89,28 @@
     display: none;
   }
 
+  @include media-query($tablet) {
+    .mobile-icon {
+      display: block;
+    }
+
+    .desk-icon {
+      display: none;
+    }
+
+    .fa {
+      display: none;
+    }
+
+    .item.nav-item {
+      padding: 0.92857143em 0.4em;
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
   @include media-query($on-palm) {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -100,16 +126,14 @@
       transform: translateY(-50%);
       position: relative;
 
-      img {
+      label {
+        display: flex;
+        align-items: center;
         cursor: pointer;
-      }
 
-      .mobile-icon {
-        display: block;
-      }
-
-      .desk-icon {
-        display: none;
+        .fa.fa-caret-down {
+          display: block;
+        }
       }
     }
 
