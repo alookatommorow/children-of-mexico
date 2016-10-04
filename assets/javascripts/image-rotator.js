@@ -37,6 +37,7 @@ function ImageRotator() {
   }
 
   $(".circle").click(function(){
+    $container.finish();
     clearInterval(interval);
     var clickedIndex = $(this).index();
     var currentUrl = generateUrl(imageNames[clickedIndex]);
