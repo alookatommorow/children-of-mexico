@@ -27,7 +27,7 @@
       .photo-display {
         margin: 0 auto;
         width: 100%;
-        height: 720px;
+        // height: 720px;
         position: relative;
 
         i {
@@ -78,38 +78,12 @@
         }
 
         .photo-thumbnails {
+          margin: 0 auto;
+          padding: 10px;
           display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          .gallery-thumbnail {
-            margin: auto 10px auto 0;
-            display: inline-block;
-            cursor: pointer;
-
-            .active-photo {
-              // border: 2px solid $orange;
-            }
-
-            img {
-              max-width: 150px;
-              max-height: 150px;
-
-              // @media #{$tablet} {
-              //   max-width: 100px;
-              //   max-height: 100px;
-              // }
-
-              // @media #{$mobile} {
-              //   max-width: 75px;
-              //   max-height: 75px;
-              // }
-            }
-
-            &:last-child {
-              margin: auto 0;
-            }
-          }
+          align-items: center;
+          justify-content: space-between;
+          width: 800px;
         }
       }
     }

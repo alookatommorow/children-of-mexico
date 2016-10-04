@@ -9,13 +9,13 @@ function ImageGallery() {
   this.init = function() {
     imageNames.forEach(function (image) {
       $(".carousel-image-container").append("<div class='gallery-image'><img src='"+generateUrl(image)+"'></div>")
-      $(".photo-thumbnails").append("<div class='gallery-thumbnail'><img src='"+generateUrl(image)+"'></div>")
+      $(".photo-thumbnails").append("<div class='circle gallery-thumbnail'></div>")
     })
     $photos = $('.carousel-image-container div');
     lastIndex = $photos.length - 1;
     $thumbs = $(".gallery-thumbnail");
     $photos.eq(currentIndex).show();
-    $thumbs.first().children().addClass("active-photo");
+    $thumbs.first().addClass("active-photo");
   }
 
   function selectNextThumb(next) {
@@ -25,11 +25,11 @@ function ImageGallery() {
 
   function showNext() {
     var $currentPhoto = $photos.eq(currentIndex);
-    var $nextThumb = $thumbs.eq(currentIndex + 1).children();
+    var $nextThumb = $thumbs.eq(currentIndex + 1);
     if (currentIndex === lastIndex) {
       $currentPhoto.hide();
       $photos.first().show();
-      selectNextThumb($thumbs.first().children());
+      selectNextThumb($thumbs.first());
       currentIndex = 0;
     } else {
       $currentPhoto.hide();
@@ -41,7 +41,7 @@ function ImageGallery() {
 
   function showPrev() {
     var $currentPhoto = $photos.eq(currentIndex),
-        $nextThumb = $thumbs.eq(currentIndex - 1).children();
+        $nextThumb = $thumbs.eq(currentIndex - 1);
     if (currentIndex === 0) {
       $currentPhoto.hide();
       $photos.last().show();
@@ -72,7 +72,7 @@ function ImageGallery() {
     var $currentPhoto = $photos.eq(currentIndex);
     $currentPhoto.hide();
     $photos.eq(nextIndex).show();
-    selectNextThumb($thumbs.eq(nextIndex).children());
+    selectNextThumb($thumbs.eq(nextIndex));
     currentIndex = nextIndex;
   });
 
