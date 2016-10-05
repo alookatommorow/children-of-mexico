@@ -53,10 +53,10 @@ $(document).ready(function() {
   /// gallery logic ///
   $("[data-media-link]").click(function(){
     var content = $(this).data("media-link");
-    $(".gallery-content .active").removeClass("active")
+    $(".gallery.well .active").removeClass("active")
     $(""+content+"").addClass("active");
+    $(this).addClass("active")
   });
-
 });
 
 function generateUrl(name) {
