@@ -12,10 +12,10 @@ function ImageRotator() {
   }
 
   function animate(url) {
-    $container.fadeOut(1000, function() {
+    $container.fadeOut(700, function() {
       $container.css('background-image', 'url('+url+')');
       $currentCircle.removeClass("active");
-      $container.fadeIn(1000);
+      $container.fadeIn(700);
       $nextCircle.addClass("active");
     });
   }
