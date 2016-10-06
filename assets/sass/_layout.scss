@@ -16,18 +16,29 @@
     box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 }
 
-.circle {
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-  background-color: $blue;
-  display: inline-block;
-  cursor: pointer;
 
-  &.active, &.active-photo {
-    border: 2px solid $red;
-  }
+
+.circle-container {
+    padding: 3px;
+
+    .circle {
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      background-color: $background-color;
+      cursor: pointer;
+      margin: auto 0;
+
+      &.active, &.active-photo {
+        background-color: $blue;
+        border: 2px solid $red;
+        width: 13px;
+        height: 13px;
+      }
+    }
 }
+
+
 
 .section-header {
     text-align: center;
@@ -37,6 +48,10 @@
     padding: 40px;
     margin: 0 auto;
     max-width: 1000px;
+
+    @include media-query($on-palm) {
+        padding: 10px;
+    }
 }
 
 input, textarea {

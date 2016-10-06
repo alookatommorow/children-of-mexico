@@ -73,6 +73,10 @@
         margin: 0;
       }
 
+      &.active {
+        border-bottom: 2px solid $red;
+      }
+
       &:hover:not(.active) {
         p {
           transform: translateY(-10px);
@@ -152,6 +156,10 @@
 
         &:hover {
           background-color: $grey-color-light;
+        }
+
+        &.active {
+          border-bottom: none;
         }
 
         &:hover:not(.active) {
