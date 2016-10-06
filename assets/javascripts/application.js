@@ -32,9 +32,10 @@ $(document).ready(function() {
   /// validate then send contact form ///
   $(".contact-form").submit(function (event) {
     event.preventDefault();
-
+    $(".contact-button").attr("disabled", true).val("Please wait...").css("cursor", "default");
     var validation = new FormValidator(this).validateForm();
     var data = $(this).serialize();
+
 
     if (validation) {
       $.ajax({
