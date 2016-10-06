@@ -9,13 +9,13 @@ function ImageGallery() {
   this.init = function() {
     imageNames.forEach(function (image) {
       $(".carousel-image-container").append("<div class='gallery-image'><img src='"+generateUrl(image)+"'></div>")
-      $(".photo-thumbnails").append("<div class='circle gallery-thumbnail'></div>")
+      $(".photo-thumbnails").append("<div class='circle-container'><div class='circle gallery-thumbnail'></div></div>")
     })
     $photos = $('.carousel-image-container div');
     lastIndex = $photos.length - 1;
-    $thumbs = $(".gallery-thumbnail");
+    $thumbs = $(".circle-container");
     $photos.eq(currentIndex).show();
-    $thumbs.first().addClass("active-photo");
+    $thumbs.first().children().addClass("active-photo");
   }
 
   function selectNextThumb(next) {
@@ -25,11 +25,11 @@ function ImageGallery() {
 
   function showNext() {
     var $currentPhoto = $photos.eq(currentIndex);
-    var $nextThumb = $thumbs.eq(currentIndex + 1);
+    var $nextThumb = $thumbs.eq(currentIndex + 1).children();
     if (currentIndex === lastIndex) {
       $currentPhoto.hide();
       $photos.first().show();
-      selectNextThumb($thumbs.first());
+      selectNextThumb($thumbs.first().children());
       currentIndex = 0;
     } else {
       $currentPhoto.hide();
@@ -41,7 +41,7 @@ function ImageGallery() {
 
   function showPrev() {
     var $currentPhoto = $photos.eq(currentIndex),
-        $nextThumb = $thumbs.eq(currentIndex - 1);
+        $nextThumb = $thumbs.eq(currentIndex - 1).children();
     if (currentIndex === 0) {
       $currentPhoto.hide();
       $photos.last().show();
@@ -68,11 +68,11 @@ function ImageGallery() {
   });
 
   $(".photo-display").on("click", ".gallery-thumbnail", function() {
-    nextIndex = $(this).index();
+    nextIndex = $(this).parent().index();
     var $currentPhoto = $photos.eq(currentIndex);
     $currentPhoto.hide();
     $photos.eq(nextIndex).show();
-    selectNextThumb($thumbs.eq(nextIndex));
+    selectNextThumb($thumbs.eq(nextIndex).children());
     currentIndex = nextIndex;
   });
 

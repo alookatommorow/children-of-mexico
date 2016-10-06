@@ -2,8 +2,8 @@ function ImageRotator() {
   var $container = $('.photo-container'),
     currentIndex = 0,
     $currentCircle = $(".circle.active"),
-    $nextCircle = $currentCircle.next(),
-    imageNames = ["IMG0170", "DSC02873", "IMG0363", "IMG0668", "DSC00461"],
+    $nextCircle = $currentCircle.parent().next().children(),
+    imageNames = ["DSC02873", "IMG0170", "IMG0363", "IMG0668", "DSC00461"],
     interval,
     currentUrl;
 
@@ -27,7 +27,7 @@ function ImageRotator() {
       $nextCircle = $(".circle.first");
     } else {
       currentIndex++;
-      $nextCircle = $currentCircle.next();
+      $nextCircle = $currentCircle.parent().next().children();
     }
     currentUrl = generateUrl(imageNames[currentIndex]);
     animate(currentUrl);
@@ -36,7 +36,7 @@ function ImageRotator() {
   $(".circle").click(function(){
     $container.finish();
     clearInterval(interval);
-    var clickedIndex = $(this).index();
+    var clickedIndex = $(this).parent().index();
     var currentUrl = generateUrl(imageNames[clickedIndex]);
     currentIndex = clickedIndex;
 

@@ -60,5 +60,5 @@ $(document).ready(function() {
 });
 
 function generateUrl(name) {
-  return "https://storage.googleapis.com/children-of-mexico/"+name+".JPG"
+  return "https://s3-us-west-1.amazonaws.com/children-of-mexico/"+name+".JPG"
 }
