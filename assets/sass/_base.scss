@@ -47,6 +47,12 @@ img {
     vertical-align: middle;
 }
 
+h1 {
+    @include media-query($on-palm) {
+        font-size: 20px;
+    }
+}
+
 
 
 /**
