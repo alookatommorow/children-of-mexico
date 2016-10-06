@@ -24,6 +24,10 @@
       h1 {
         text-align: center;
       }
+
+      .mobile-video {
+        display: none;
+      }
     }
 
     #photo {
@@ -140,6 +144,17 @@
     }
 
     .gallery-content {
+
+      #video {
+
+        .big-video {
+          display: none;
+        }
+
+        .mobile-video {
+          display: block;
+        }
+      }
 
       #photo {
 
