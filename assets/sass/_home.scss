@@ -18,7 +18,7 @@
       overflow: hidden;
 
       .photo-container {
-        background-image: url("https://storage.googleapis.com/children-of-mexico/IMG0170.JPG");
+        background-image: url("https://s3-us-west-1.amazonaws.com/children-of-mexico/DSC02873.JPG");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -40,19 +40,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        .circle {
-          border-radius: 50%;
-          width: 15px;
-          height: 15px;
-          background-color: $blue;
-          display: inline-block;
-          cursor: pointer;
-
-          &.active {
-            border: 2px solid $red;
-          }
-        }
       }
     }
 
@@ -62,7 +49,7 @@
       .logo-container {
         padding: 20px 0;
         text-align: center;
-        margin-bottom: 50px;
+        // margin-bottom: 20px;
 
         img {
           height: 220px;

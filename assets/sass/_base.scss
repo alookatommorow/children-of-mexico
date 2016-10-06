@@ -16,7 +16,7 @@ dl, dd, ol, ul, figure {
 body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
     color: $text-color;
-    background-color: $background-color;
+    background-color: $blue;
     -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
@@ -45,6 +45,12 @@ ul, ol, dl, figure,
 img {
     max-width: 100%;
     vertical-align: middle;
+}
+
+h1 {
+    @include media-query($on-palm) {
+        font-size: 20px;
+    }
 }
 
 
@@ -90,6 +96,7 @@ h1, h2, h3, h4, h5, h6 {
 /**
  * Links
  */
+
 // a {
 //     color: $brand-color;
 //     text-decoration: none;

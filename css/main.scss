@@ -5,7 +5,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=PT+Sans);
 @import url(https://fonts.googleapis.com/css?family=Sriracha);
-@import url(//db.onlinewebfonts.com/c/e75f73e830a70e74607273bbf301f232?family=ItalianGaramondW01-Roman);
+// @import url(//db.onlinewebfonts.com/c/e75f73e830a70e74607273bbf301f232?family=ItalianGaramondW01-Roman);
 
 // Colors
 $black: #221E1F;
@@ -60,7 +60,10 @@ $divider: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABaAAAAACCAYAAACuTHuKAAA
         "divider",
         "layout",
         "nav",
+        "menu",
+        "gallery",
         "form",
+        "faq",
         "button",
         "menu",
         "home",

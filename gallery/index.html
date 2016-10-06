@@ -2,8 +2,30 @@
 layout: default
 ---
 
-<h1>Gallery</h1>
-<iframe src="https://player.vimeo.com/video/139987907" width="540" height="304" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-<iframe src="https://player.vimeo.com/video/133283483" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/133283483">Children of Mexico International - Guadalajara Orphanage</a> from <a href="https://vimeo.com/missionzoom">Misson Zoom</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<div class="page-wrapper">
+  <div class="well gallery">
+    <h1>
+      <div class="horizontal divider">Gallery</div>
+    </h1>
+    <div class="standard-menu">
+      <div class="item active" data-media-link="#photo">Photos</div>
+      <div class="item" data-media-link="#video">Videos</div>
+    </div>
+    <div class="gallery-content">
+      <div id="photo" class="active">
+        <div class="photo-display">
+          <i class="fa fa-angle-left prev carousel-button" data-carousel="prev"></i>
+          <i class="fa fa-angle-right next carousel-button" data-carousel="next"></i>
+          <div class="carousel-image-container">
+          </div>
+          <div class="photo-thumbnails">
+          </div>
+        </div>
+      </div>
+      <div id="video">
+        <iframe class="big-video" src="https://player.vimeo.com/video/139987907" width="540" height="304" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe class="mobile-video" src="https://player.vimeo.com/video/139987907" width="280" height="158" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
