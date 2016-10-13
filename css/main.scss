@@ -56,7 +56,9 @@ $divider: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABaAAAAACCAYAAACuTHuKAAA
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
+
         "base",
+        "about",
         "divider",
         "layout",
         "nav",
