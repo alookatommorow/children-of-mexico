@@ -28,6 +28,17 @@
       .mobile-video {
         display: none;
       }
+
+      .big-video {
+
+        iframe {
+          margin-bottom: 30px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
     }
 
     #photo {
@@ -153,7 +164,15 @@
 
         .mobile-video {
           display: block;
-          margin: 0 auto;
+
+          iframe {
+            margin: 0 auto 15px auto;
+            display: block;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
         }
       }
 
